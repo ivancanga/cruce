@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+}
+
+@font-face {
+    font-family: "Montserrat-Medium";
+    src: url("/cruce/assets/fonts/Montserrat-Regular.ttf");
+    src: url("/cruce/assets/fonts/Montserrat-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/cruce/assets/fonts/Roboto-Regular.ttf");
+}
+
+nav {
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+nav * {
+    align-self: center;
+    border: 1px solid red;
+}
+
+.btns-left ul {
+    display: flex;
+    list-style: none;
+    font-family: 'Montserrat-Medium', Arial, Helvetica;
+}
+
+nav img {
+    margin: 0 auto;
+}
+
+.menu-right {
+    float: right;
+    margin-right: 40px;
+    font-family: 'Montserrat-Medium', Arial, Helvetica;
+}
+
+.menu-right button {
+    background-color: none;
+}
+
+.content {
+    margin: 20px auto;
+    max-width: 1344px;
+}
+
+.main-banner img {
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    margin: 20px auto;
+    font-family: 'Montserrat-Medium', Arial, Helvetica;
+}
+
+#products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 15px;
+}
+
+.product_box{
+    padding: 12px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.36);
+    margin: 0px;
+}
+
+.product_box img {
+    width: 100%;
+    display: block;
+}
+
+.product-info{
+    margin: 10px 0;
+    text-align: center;
+}
+
+.product-info *{
+    padding: 5px 0;
+}
+
+.prod_cat{
+    font-family: 'Roboto', Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: #77777759;
+}
+
+.prod_name{
+    font-family: 'Montserrat-Medium', Arial, Helvetica;
+    font-weight: bolder;
+}
+
+.prod_price{
+    font-family: 'Montserrat-Medium', Arial, Helvetica;
+}
+
+.add-item {
+    font-family: 'Montserrat-Medium';
+    padding: 12px 24px;
+    color: white;
+    background-color: black;
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.add-product {
+    margin: 0 auto;
+    width: fit-content;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+form input {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 5px auto;
+    display: block;
+}
