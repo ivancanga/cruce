@@ -21,7 +21,7 @@ window.onload = () => {
 
 carrito.addEventListener('click', e => {
     displayCart();
-    if(document.querySelector('.subtotal')){
+    if (document.querySelector('.subtotal')) {
         getTotal();
     }
     cart_container.style.display = 'block';
@@ -36,7 +36,13 @@ create_submit.addEventListener('click', (e) => {
 // Muestra cantidad de items en el carrito
 
 function displayQuanty() {
-    document.getElementById("quanty_items").innerHTML = `${sessionStorage.length - 1}`;
+    let c = 0;
+    for (let i = 0; i < sessionStorage.length; i++) {
+        if (sessionStorage.key(i).startsWith('item-cruce-product')) {
+            c++;
+        }
+    }
+    document.getElementById("quanty_items").innerHTML = `${c}`;
 }
 
 // Crea un producto nuevo
@@ -62,7 +68,7 @@ function createProduct() {
 function displayProducts() {
     products_container.innerHTML = '';
     if (localStorage.length > 0) {
-        for (let i = 0; i < localStorage.length ; i++) {
+        for (let i = 0; i < localStorage.length; i++) {
             if (localStorage.key(i).startsWith('cruce-product')) {
                 const ObjProduct = JSON.parse(localStorage.getItem(localStorage.key(i)));
                 let product_box = document.createElement('div');
@@ -141,7 +147,7 @@ function displayCart() {
 
 function getTotal() {
     let total = 0;
-    if (sessionStorage.length > 0) {
+    if (sessionStorage.length >= 1) {
         for (let i = 0; i < sessionStorage.length; i++) {
             if (sessionStorage.key(i).startsWith('item-cruce')) {
                 let obj = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
