@@ -48,7 +48,7 @@ function createProduct() {
     span_status.innerHTML = '';
     if (nombre.length > 0) {
         producto = new Product(nombre, precio, categoria);
-        localStorage.setItem(`product-${localStorage.length + 1}`, JSON.stringify(producto));
+        localStorage.setItem(`cruce-product-${localStorage.length + 1}`, JSON.stringify(producto));
         span_status.innerHTML = 'Producto cargado.';
         document.getElementById('nombre').value = '';
         document.getElementById('precio').value = '';
@@ -62,8 +62,8 @@ function createProduct() {
 function displayProducts() {
     products_container.innerHTML = '';
     if (localStorage.length > 0) {
-        for (let i = 0; i < 8; i++) {
-            if (localStorage.getItem(localStorage.key(i)) !== null) {
+        for (let i = 0; i < localStorage.length ; i++) {
+            if (localStorage.key(i).startsWith('cruce-product')) {
                 const ObjProduct = JSON.parse(localStorage.getItem(localStorage.key(i)));
                 let product_box = document.createElement('div');
                 product_box.className = 'product_box';
@@ -99,7 +99,7 @@ function displayCart() {
     let info_cart = document.createElement('div');
     if (sessionStorage.length > 1) {
         for (let i = 0; i < sessionStorage.length; i++) {
-            if (sessionStorage.key(i).startsWith('item-product')) {
+            if (sessionStorage.key(i).startsWith('item-cruce-product')) {
                 const ObjItem = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
                 let item_box = document.createElement('div');
                 item_box.className = 'item_box';
@@ -143,7 +143,7 @@ function getTotal() {
     let total = 0;
     if (sessionStorage.length > 0) {
         for (let i = 0; i < sessionStorage.length; i++) {
-            if (sessionStorage.key(i).startsWith('item-product')) {
+            if (sessionStorage.key(i).startsWith('item-cruce')) {
                 let obj = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
                 total = total + (+obj.precio);
             }
