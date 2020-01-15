@@ -40,6 +40,7 @@ nav img {
 .menu-right {
     float: right;
     margin-right: 40px;
+    cursor: pointer;
     font-family: 'Montserrat-Medium', Arial, Helvetica;
 }
 
@@ -47,12 +48,22 @@ nav img {
     background-color: none;
 }
 
+#quanty_items {
+    transform: translate(-40%, 70%);
+    font-size: 0.8rem;
+    position: absolute;
+    border: 2px solid white;
+    padding: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 .cart-container {
     display: none;
     position: absolute;
     color: black;
     width: 350px;
-    transform: translate(-50%,2%);
+    transform: translate(-50%, 2%);
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.36);
     background: white;
     padding: 20px;
@@ -60,11 +71,24 @@ nav img {
 
 .btn-cart {
     font-family: 'Montserrat-Medium', Arial, Helvetica;
-    padding: 10px 0;
     width: 100%;
+    padding: 10px 0;
     background-color: white;
     border-radius: 6px;
     border: 2px solid #000000;
+}
+
+.btn-all-products {
+    display: block;
+    margin: 40px auto;
+    font-family: 'Montserrat-Medium', Arial, Helvetica;
+    font-weight: bolder;
+    font-size: 1.1rem;
+    padding: 10px 30px;
+    background-color: white;
+    border-radius: 6px;
+    border: 2.5px solid #000000;
+    cursor: pointer;
 }
 
 .item_box {
@@ -75,19 +99,44 @@ nav img {
     position: relative;
 }
 
-.cart-img{
+.cart-img {
     float: left;
     width: 72px;
     display: block;
+    margin-right: 10px;
 }
 
-.remove-btn{
+.item-name{
+    font-family: 'Montserrat-Medium', Arial, Helvetica;
+    font-weight: bolder;
+    margin-bottom: 4px;
+}
+
+.item-price{
+    font-family: 'Roboto';
+    font-weight: 500;
+}
+
+.remove-btn {
     position: absolute;
     left: 85%;
     bottom: 75%;
     color: #777777;
     font-size: 0.8rem;
     cursor: pointer;
+}
+
+.subtotal{
+    float: right;
+}
+
+.seguir-comprando{
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #777777;
 }
 
 .content {
@@ -147,6 +196,7 @@ nav img {
     font-family: 'Montserrat-Medium', Arial, Helvetica;
 }
 
+
 .add-item {
     font-family: 'Montserrat-Medium';
     padding: 12px 24px;
@@ -171,4 +221,87 @@ form input {
     border: 1px solid black;
     margin: 5px auto;
     display: block;
+}
+
+.banners {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 24px;
+    margin: 40px 0;
+}
+
+.banners img {
+    width: 100%;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #F6F6F6;
+    padding: 50px 250px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+footer h3 {
+    font-family: 'Montserrat-Medium';
+    display: block;
+    position: relative;
+}
+
+footer h3:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 1px;
+    width: 15%;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+footer ul {
+    font-family: 'Roboto';
+    color: #777777;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 30px;
+}
+
+footer ul li{
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.nav-bottom{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin: 15px 0;
+    justify-content: space-between;
+    font-family: 'Roboto';
+}
+
+.cruce{
+    font-family: 'Montserrat-Medium';
+    font-weight: bolder;
+    position: relative;
+    padding-right: 10px;
+}
+
+.cruce:before {
+    content: '';
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    height: 100%;
+    border-right: 2px solid #DDDDDD;
+}
+
+.rights{
+    margin-left: 10px;
+}
+
+.social-media{
+    cursor: pointer;
 }
