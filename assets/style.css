@@ -25,7 +25,6 @@ nav {
 
 nav * {
     align-self: center;
-    border: 1px solid red;
 }
 
 .btns-left ul {
@@ -46,6 +45,49 @@ nav img {
 
 .menu-right button {
     background-color: none;
+}
+
+.cart-container {
+    display: none;
+    position: absolute;
+    color: black;
+    width: 350px;
+    transform: translate(-50%,2%);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.36);
+    background: white;
+    padding: 20px;
+}
+
+.btn-cart {
+    font-family: 'Montserrat-Medium', Arial, Helvetica;
+    padding: 10px 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 6px;
+    border: 2px solid #000000;
+}
+
+.item_box {
+    height: 80px;
+    margin: 10px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #DDDDDD;
+    position: relative;
+}
+
+.cart-img{
+    float: left;
+    width: 72px;
+    display: block;
+}
+
+.remove-btn{
+    position: absolute;
+    left: 85%;
+    bottom: 75%;
+    color: #777777;
+    font-size: 0.8rem;
+    cursor: pointer;
 }
 
 .content {
@@ -70,7 +112,7 @@ nav img {
     grid-row-gap: 15px;
 }
 
-.product_box{
+.product_box {
     padding: 12px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.36);
     margin: 0px;
@@ -81,27 +123,27 @@ nav img {
     display: block;
 }
 
-.product-info{
+.product-info {
     margin: 10px 0;
     text-align: center;
 }
 
-.product-info *{
+.product-info * {
     padding: 5px 0;
 }
 
-.prod_cat{
+.prod_cat {
     font-family: 'Roboto', Helvetica, sans-serif;
     text-transform: uppercase;
     color: #77777759;
 }
 
-.prod_name{
+.prod_name {
     font-family: 'Montserrat-Medium', Arial, Helvetica;
     font-weight: bolder;
 }
 
-.prod_price{
+.prod_price {
     font-family: 'Montserrat-Medium', Arial, Helvetica;
 }
 
