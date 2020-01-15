@@ -31,10 +31,16 @@ nav * {
     display: flex;
     list-style: none;
     font-family: 'Montserrat-Medium', Arial, Helvetica;
+    padding: 0 20px;
+}
+
+.btns-left ul li{
+    margin-right: 25px;
 }
 
 nav img {
     margin: 0 auto;
+    height: 100%;
 }
 
 .menu-right {
@@ -71,11 +77,14 @@ nav img {
 
 .btn-cart {
     font-family: 'Montserrat-Medium', Arial, Helvetica;
+    font-weight: bolder;
+    font-size: 1rem;
     width: 100%;
     padding: 10px 0;
     background-color: white;
     border-radius: 6px;
     border: 2px solid #000000;
+    margin-top: 20px;
 }
 
 .btn-all-products {
@@ -94,7 +103,6 @@ nav img {
 .item_box {
     height: 80px;
     margin: 10px 0;
-    padding: 5px 0;
     border-bottom: 1px solid #DDDDDD;
     position: relative;
 }
@@ -104,6 +112,7 @@ nav img {
     width: 72px;
     display: block;
     margin-right: 10px;
+    padding-bottom: 8px;
 }
 
 .item-name{
@@ -127,7 +136,12 @@ nav img {
 }
 
 .subtotal{
+    font-weight: bolder;
     float: right;
+}
+
+.subtotal-box{
+    margin-top: 20px;
 }
 
 .seguir-comprando{
@@ -152,6 +166,10 @@ nav img {
     text-align: center;
     margin: 20px auto;
     font-family: 'Montserrat-Medium', Arial, Helvetica;
+}
+
+h1{
+   padding: 40px;
 }
 
 #products {
@@ -221,6 +239,12 @@ form input {
     border: 1px solid black;
     margin: 5px auto;
     display: block;
+}
+
+.categories-list{
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid black;
 }
 
 .banners {

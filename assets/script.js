@@ -46,7 +46,7 @@ function createProduct() {
     let precio = document.getElementById('precio').value;
     let categoria = document.getElementById('categories').value;
     span_status.innerHTML = '';
-    if (nombre.length > 0) {
+    if (nombre.length > 0 && precio.length > 0) {
         producto = new Product(nombre, precio, categoria);
         localStorage.setItem(`cruce-product-${localStorage.length + 1}`, JSON.stringify(producto));
         span_status.innerHTML = 'Producto cargado.';
@@ -125,7 +125,7 @@ function displayCart() {
             }
         }
         info_cart.innerHTML = `
-            <div>
+            <div class='subtotal-box'>
             <span>Subtotal</span><span class='subtotal'></span>
             </div>
             <button class='btn-cart'>Finalizar compra</button>
