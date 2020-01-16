@@ -14,12 +14,22 @@ class Product {
     }
 }
 
+// Eventos
+
 window.onload = () => {
     displayProducts();
     displayQuanty();
 }
 
 carrito.addEventListener('click', e => {
+    displayCart();
+    if (document.querySelector('.subtotal')) {
+        getTotal();
+    }
+    cart_container.style.display = 'block';
+});
+
+document.getElementById("quanty_items").addEventListener('click', e => {
     displayCart();
     if (document.querySelector('.subtotal')) {
         getTotal();
@@ -103,43 +113,38 @@ function displayProducts() {
 function displayCart() {
     items_container.innerHTML = '';
     let info_cart = document.createElement('div');
-    if (sessionStorage.length > 1) {
-        for (let i = 0; i < sessionStorage.length; i++) {
-            if (sessionStorage.key(i).startsWith('item-cruce-product')) {
-                const ObjItem = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
-                let item_box = document.createElement('div');
-                item_box.className = 'item_box';
-                item_box.innerHTML = `
+    for (let i = 0; i < sessionStorage.length; i++) {
+        if (sessionStorage.key(i).startsWith('item-cruce-product')) {
+            const ObjItem = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
+            let item_box = document.createElement('div');
+            item_box.className = 'item_box';
+            item_box.innerHTML = `
                 <img class='cart-img' src="/cruce/assets/images/img_reloj.png" alt="">
                 <p class='item-name'>${ObjItem.nombre}</p>
                 <p class='item-price'>$${ObjItem.precio}</p>`;
-                btn_remove = document.createElement('p');
-                btn_remove.innerHTML = 'Quitar';
-                btn_remove.className = 'remove-btn';
-                btn_remove.id = sessionStorage.key(i);
-                // Remueve item del carrito
-                btn_remove.addEventListener('click', (e) => {
-                    sessionStorage.removeItem(e.target.id);
-                    displayCart();
-                    displayQuanty();
-                    if (document.querySelector('.subtotal')) {
-                        getTotal();
-                    }
-                })
-                items_container.append(item_box);
-                item_box.append(btn_remove);
-            }
+            btn_remove = document.createElement('p');
+            btn_remove.innerHTML = 'Quitar';
+            btn_remove.className = 'remove-btn';
+            btn_remove.id = sessionStorage.key(i);
+            // Remueve item del carrito
+            btn_remove.addEventListener('click', (e) => {
+                sessionStorage.removeItem(e.target.id);
+                displayCart();
+                displayQuanty();
+                if (document.querySelector('.subtotal')) {
+                    getTotal();
+                }
+            })
+            items_container.append(item_box);
+            item_box.append(btn_remove);
         }
-        info_cart.innerHTML = `
+    }
+    info_cart.innerHTML = `
             <div class='subtotal-box'>
             <span>Subtotal</span><span class='subtotal'></span>
             </div>
             <button class='btn-cart'>Finalizar compra</button>
             <a class='seguir-comprando' href='#'>Seguir comprando</a>`;
-    }
-    else {
-        info_cart.innerHTML = 'Aún no hay artículos cargados';
-    }
     items_container.append(info_cart);
 }
 
@@ -155,6 +160,5 @@ function getTotal() {
             }
         }
         document.querySelector('.subtotal').innerHTML = `$${total}`;
-        return total;
     }
 }
