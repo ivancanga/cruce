@@ -129,9 +129,10 @@ function displayCart() {
             // Remueve item del carrito
             btn_remove.addEventListener('click', (e) => {
                 sessionStorage.removeItem(e.target.id);
-                displayCart();
                 displayQuanty();
+                displayCart();
                 if (document.querySelector('.subtotal')) {
+                    displayCart();
                     getTotal();
                 }
             })
