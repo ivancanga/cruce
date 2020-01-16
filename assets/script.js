@@ -139,12 +139,16 @@ function displayCart() {
             item_box.append(btn_remove);
         }
     }
-    info_cart.innerHTML = `
-            <div class='subtotal-box'>
-            <span>Subtotal</span><span class='subtotal'></span>
-            </div>
-            <button class='btn-cart'>Finalizar compra</button>
-            <a class='seguir-comprando' href='#'>Seguir comprando</a>`;
+    if (document.getElementById('quanty_items').textContent !== '0') {
+        info_cart.innerHTML = `
+        <div class='subtotal-box'>
+        <span>Subtotal</span><span class='subtotal'></span>
+        </div>
+        <button class='btn-cart'>Finalizar compra</button>
+        <a class='seguir-comprando' href='#'>Seguir comprando</a>`;
+    }else{
+        info_cart.innerHTML = `No hay items en el carrito.`;
+    }
     items_container.append(info_cart);
 }
 
@@ -154,11 +158,16 @@ function getTotal() {
     let total = 0;
     if (sessionStorage.length >= 1) {
         for (let i = 0; i < sessionStorage.length; i++) {
+            displayCart();
             if (sessionStorage.key(i).startsWith('item-cruce')) {
                 let obj = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
                 total = total + (+obj.precio);
             }
         }
-        document.querySelector('.subtotal').innerHTML = `$${total}`;
+        if (total !== 0) {
+            document.querySelector('.subtotal').innerHTML = `$${total}`;
+        } else {
+            displayCart();
+        }
     }
 }
